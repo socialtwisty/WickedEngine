@@ -37,7 +37,7 @@ void GameApp::Initialize() {
 	Application::Initialize();
 	renderer.init(canvas);
 
-	//myComponentLibrary = wi::scene::GetScene().componentLibrary.Register<MyTestComponent>("banana");
+	myComponentLibrary = wi::scene::GetScene().componentLibrary.Register<MyTestComponent>("banana");
 
 	renderer.Load();
 	ActivatePath(&renderer);
