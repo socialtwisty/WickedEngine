@@ -18,6 +18,11 @@ void GameRenderPath::Update(float dt) {
 		// do something with it
 	}
 
+	if (GameApp::tick == 2) {
+		wi::scene::Scene src;
+		wi::scene::LoadModel(src, "../../Content/models/teapot.wiscene");
+		wi::scene::GetScene().Merge(src);
+	}
 
 	GameApp::tick++;
 	RenderPath3D::Update(dt);
