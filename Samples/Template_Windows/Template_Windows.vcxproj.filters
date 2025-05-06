@@ -25,12 +25,18 @@
     <ClInclude Include="main.h">
       <Filter>Code</Filter>
     </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Code</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
       <Filter>Code</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,9 +51,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\WickedEngine\dxil.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <CopyFileToFolders Include="..\..\WickedEngine\dxcompiler.dll" />
+    <CopyFileToFolders Include="..\..\WickedEngine\dxil.dll" />
   </ItemGroup>
 </Project>

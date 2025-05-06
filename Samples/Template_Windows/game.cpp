@@ -1,0 +1,38 @@
+#include "stdafx.h"
+#include "game.h"
+
+void MyTestComponent::Serialize(wi::Archive& archive, wi::ecs::EntitySerializer& seri) {
+	// stubbed; Nothing to serialize yet.
+}
+
+void GameRenderPath::Load() {
+	RenderPath3D::Load();
+}
+
+void GameRenderPath::Update(float dt) {
+
+	if (GameApp::tick == 1) {
+		GameApp::entDummy = wi::ecs::CreateEntity();
+		GameApp::myComponentLibrary->Create(GameApp::entDummy);
+		MyTestComponent* testcomp = GameApp::myComponentLibrary->GetComponent(GameApp::entDummy);
+		// do something with it
+	}
+
+
+	GameApp::tick++;
+	RenderPath3D::Update(dt);
+}
+
+uint64_t GameApp::tick = 0;
+wi::ecs::ComponentManager<MyTestComponent>* GameApp::myComponentLibrary;
+wi::ecs::Entity GameApp::entDummy = wi::ecs::INVALID_ENTITY;
+
+void GameApp::Initialize() {
+	Application::Initialize();
+	renderer.init(canvas);
+
+	myComponentLibrary = &wi::scene::GetScene().componentLibrary.Register<MyTestComponent>("banana");
+
+	renderer.Load();
+	ActivatePath(&renderer);
+}
