@@ -995,6 +995,8 @@ namespace wi::scene
 	{
 		for (auto& entry : componentLibrary.entries)
 		{
+			if (other.componentLibrary.entries.count(entry.first) == 0)
+				continue;
 			entry.second.component_manager->Merge(*other.componentLibrary.entries[entry.first].component_manager);
 		}
 	}
@@ -5342,9 +5344,9 @@ namespace wi::scene
 			if (video.videoResource.IsValid())
 			{
 				const wi::video::Video& vid = video.videoResource.GetVideo();
-				if (vid.frames_infos.size() > video.videoinstance.current_frame)
+				if (vid.frame_infos.size() > video.videoinstance.current_frame)
 				{
-					video.currentTimer = vid.frames_infos[video.videoinstance.current_frame].timestamp_seconds;
+					video.currentTimer = vid.frame_infos[video.videoinstance.current_frame].timestamp_seconds;
 				}
 			}
 
