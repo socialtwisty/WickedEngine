@@ -20,6 +20,8 @@ public:
 
 	static uint64_t tick;
 	static wi::ecs::Entity entDummy;
+	static wi::ecs::ComponentManager<MyTestComponent>* myComponentLibrary;
+
 
 	void Initialize() override;
 	GameRenderPath* GetRenderer() { return &renderer; }
