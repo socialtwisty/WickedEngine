@@ -16,12 +16,11 @@ void GameRenderPath::Update(float dt) {
 
 	if (GameApp::tick == 1) {
 		e1 = wi::ecs::CreateEntity();
-		e2 = wi::ecs::CreateEntity();
-
 		MyTestComponent& c1 = GameApp::myComponentLibrary->Create(e1);
-		MyTestComponent& c2 = GameApp::myComponentLibrary->Create(e2);
-
 		c1.value = 10;
+
+		e2 = wi::ecs::CreateEntity();
+		MyTestComponent& c2 = GameApp::myComponentLibrary->Create(e2);
 		c2.value = 20;
 	}
 
